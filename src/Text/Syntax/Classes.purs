@@ -4,6 +4,7 @@ import Prelude hiding (($), (<*>), apply, map)
 
 import Control.Isomorphism.Partial (class IsoFunctor)
 import Data.Tuple (Tuple)
+import Data.String (CodePoint)
 
 
 class ProductFunctor f where
@@ -21,4 +22,4 @@ infixl 3 alt as <|>
 
 class (IsoFunctor d, ProductFunctor d, Alternative d) <= Syntax d where
   pure :: forall a. Eq a => a -> d a
-  token :: d Char
+  token :: d CodePoint
